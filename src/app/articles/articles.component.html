@@ -1,0 +1,55 @@
+<div class="container page-content">
+  <div class="row">
+    <div class="col-sm-12 col-md">
+      <div *ngFor="let article of articles; let index = index">
+        <div class="row">
+          <div class="letter">
+            <div><span class="titre">{{article.titre}}</span>&nbsp;&nbsp;&nbsp;Par {{article.proprietaire}}</div>
+            <p class="col-10" [innerText]="article.texte"></p>
+          </div>
+          <div class="button-row" class="col-2">
+            <button type="button" class="btn btn-primary" (click)="editArticle(index, articlemodal)"><i class="fa fa-edit"></i></button>
+            <button type="button" class="btn btn-danger" (click)="deleteArticle(index)"><i class="fa fa-trash"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <button type="button" class="btn btn-primary" (click)="addArticle(articlemodal)"><i class="fa fa-plus"></i> Ajouter</button>
+    </div>
+  </div>
+</div>
+
+
+  <ng-template #articlemodal>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Article</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="form">
+        <div class="form-group full-width-input">
+          <label>Titre</label>
+          <input class="form-control" placeholder="Titre de l'article" formControlName="titre" required>
+        </div>
+        <div class="form-group full-width-input">
+          <label>Texte</label>
+          <textarea class="form-control" formControlName="texte" required></textarea>
+        </div>
+        <div class="form-group full-width-input">
+          <label>Auteur</label>
+          <input class="form-control" placeholder="Votre nom" formControlName="proprietaire" required>
+        </div>
+        <!-- <div class="form-group full-width-input">
+          <label>Date</label>
+          <input class="form-control" formControlName="dateCreation" bsDatepicker>
+        </div> -->
+        <div class="button-row">
+          <button type="button" class="btn btn-primary" (click)="modalCallback()">Valider</button>
+          <button type="button" class="btn btn-light" (click)="onCancel()">Annuler</button>
+        </div>
+      </form>
+    </div>
+  </ng-template>
