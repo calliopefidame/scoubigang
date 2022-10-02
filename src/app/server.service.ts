@@ -27,6 +27,10 @@ export class ServerService {
     return this.request('GET', `${environment.serverUrl}/read.php`);
   }
 
+  getHistoriques() {
+    return this.request('GET', `${environment.serverUrl}/read_historique.php`);
+  }
+
   createArticle(article:any) {
     return this.request('POST', `${environment.serverUrl}/create.php`, article);
   }

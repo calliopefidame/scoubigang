@@ -12,12 +12,14 @@ import { HomeComponent } from './home/home.component';
 
 import { ArticlesComponent } from './articles/articles.component';
 import { environment } from 'src/environments/environment';
+import { HistoriqueComponent } from './historique/historique.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ArticlesComponent
+    ArticlesComponent,
+    HistoriqueComponent
   ],
   imports: [
     BrowserModule,

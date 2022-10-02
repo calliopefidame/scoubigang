@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  serverUrl: 'http://localhost:4000/api',
+  serverUrl: 'http://localhost/scoubigang_backend_php/api',
 };
 
 /*

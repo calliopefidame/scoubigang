@@ -1,0 +1,18 @@
+<div class="container page-content">
+    <div class="row">
+      <div class="col-sm-12 col-md">
+        <ul class="list-group" *ngFor="let historique of historiques; let index = index">
+            <li class="list-group-item">
+                <div>L'article : "{{historique.ancien_titre}}"" a été modifié par {{historique.user}}</div>
+                <div *ngIf="historique.ancien_titre != historique.nouveau_titre">
+                  Le titre est passé de {{historique.ancien_titre}} à {{historique.nouveau_titre}}
+                  <br>
+                </div>
+                <div *ngIf="historique.ancien_texte != historique.nouveau_texte">
+                  Le texte est passé de : {{historique.ancien_texte}} à {{historique.nouveau_texte}}
+                </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </div>
