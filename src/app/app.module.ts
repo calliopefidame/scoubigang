@@ -13,13 +13,17 @@ import { HomeComponent } from './home/home.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { environment } from 'src/environments/environment';
 import { HistoriqueComponent } from './historique/historique.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ArticlesComponent,
-    HistoriqueComponent
+    HistoriqueComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
