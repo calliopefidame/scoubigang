@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand navbar-light bg-light">
+    <a class="navbar-brand" [routerLink]="['']">
+      <img src="../assets/images/scoubIco.gif" alt="" width="50px" height="75px">
+    </a>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['']">
+          Accueil
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['article']">
+          Blog
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['historique']">
+          Historiques
+        </a>
+      </li>
+    </ul>
+    <span>
+        <div *ngIf="isConnected">
+            <button class="btn btn-primary" *ngIf="isConnected" (click)="logout()" > Se déconnecter </button>
+        </div>
+        <div *ngIf="!isConnected">
+            <button class="btn btn-danger" *ngIf="!isConnected" [routerLink]="['login']" > Se connecter </button>
+        </div>
+    </span>
+  </nav>

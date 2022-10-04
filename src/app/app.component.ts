@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from './auth/auth.service';
 import{ GlobalConstants } from './common/global-constants';
 
 @Component({
@@ -8,10 +9,8 @@ import{ GlobalConstants } from './common/global-constants';
 })
 export class AppComponent {
   title = 'Scoubigang';
-  isAuthenticated: boolean = false;
-  userName: any = 'Anonyme';
 
-  constructor() {
+  constructor(private authservice: AuthService) {
   }
 
   async ngOnInit() {

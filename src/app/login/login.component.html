@@ -1,19 +1,19 @@
-<form>
+<form [formGroup]="profileFormCo" (ngSubmit)="onSubmit()">
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Login</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-      <div id="emailHelp" class="form-text">Ton adresse email ne sera jamais partagée avec personne.</div>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="email">
     </div>
     <div class="mb-3">
       <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
-      <input type="password" class="form-control" id="exampleInputPassword1">
+      <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
     </div>
     <!-- <div class="mb-3 form-check">
       <input type="checkbox" class="form-check-input" id="exampleCheck1">
       <label class="form-check-label" for="exampleCheck1">Connecter moi !</label>
     </div> -->
+    <div class="alert alert-danger" *ngIf="erreurLogin">Login ou mot de passe invalide.</div>
     <div>
-      <button type="submit" class="btn btn-primary">Connectes moi !</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!profileFormCo.valid">Connectes moi !</button>
     </div>
     <div>
       <a [routerLink]="['../register']">S'inscrire</a>

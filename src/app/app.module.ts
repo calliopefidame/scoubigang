@@ -15,6 +15,8 @@ import { environment } from 'src/environments/environment';
 import { HistoriqueComponent } from './historique/historique.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { AuthService } from './auth/auth.service';
+import { TopBarComponent } from './top-bar/top-bar.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { RegisterComponent } from './register/register.component';
     ArticlesComponent,
     HistoriqueComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    TopBarComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,7 @@ import { RegisterComponent } from './register/register.component';
     BsDatepickerModule.forRoot(),
     ModalModule.forRoot(),
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

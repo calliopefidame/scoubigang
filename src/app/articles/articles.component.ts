@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { ServerService } from '../../../../scoubigang/src/app/server.service';
+import { AuthService } from '../auth/auth.service';
 import { GlobalConstants } from '../common/global-constants';
 
 @Component({
@@ -15,18 +16,18 @@ export class ArticlesComponent implements OnInit {
   modalRef: BsModalRef = new BsModalRef;
 
   articles: any[] = [];
-  currentArticle: any = {id: null, titre: '', texte: '', proprietaire: ''};
+  currentArticle: any = {id: null, titre: '', texte: ''};
   modalCallback!: () => void;
 
   constructor(private fb: FormBuilder,
               private modalService: BsModalService,
-              private server: ServerService) { }
+              private server: ServerService,
+              private authservice : AuthService) { }
 
   ngOnInit() {
     this.form = this.fb.group({
       titre: [this.currentArticle.titre, Validators.required],
       texte: this.currentArticle.texte,
-      proprietaire: this.currentArticle.proprietaire,
     });
     this.getArticles();
   }
@@ -34,8 +35,7 @@ export class ArticlesComponent implements OnInit {
   private updateForm() {
     this.form.setValue({
       titre: this.currentArticle.titre,
-      texte: this.currentArticle.texte,
-      proprietaire: this.currentArticle.proprietaire
+      texte: this.currentArticle.texte
     });
   }
 
@@ -55,7 +55,7 @@ export class ArticlesComponent implements OnInit {
   }
 
   addArticle(template:any) {
-    this.currentArticle = {id: null, titre: '', texte: '', proprietaire: ''};
+    this.currentArticle = {id: null, titre: '', texte: ''};
     this.updateForm();
     this.modalCallback = this.createArticle.bind(this);
     this.modalRef = this.modalService.show(template);
@@ -65,7 +65,7 @@ export class ArticlesComponent implements OnInit {
     const newArticle = {
       titre: this.form.get('titre').value,
       texte: this.form.get('texte').value,
-      proprietaire: this.form.get('proprietaire').value,
+      proprietaire: this.authservice.username,
       dateCreation: new Date()
     };
     this.modalRef.hide();
@@ -86,7 +86,7 @@ export class ArticlesComponent implements OnInit {
       id: this.currentArticle.id,
       titre: this.form.get('titre').value,
       texte: this.form.get('texte').value,
-      proprietaire: this.form.get('proprietaire').value,
+      proprietaire: this.authservice.username,
       dateCreation: new Date(),
     };
     this.modalRef.hide();

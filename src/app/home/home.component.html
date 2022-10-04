@@ -4,11 +4,12 @@
         <h1>Mistery machine</h1>
       </div>
       <div class="image_princ" ><img src="../../assets/images/Scooby-gang.webp" alt=""></div>
-      <div>
+      <div *ngIf="isConnected">
+        <div >Bienvenu {{username}}</div>
         <div class="h3">Mise à jour :</div>
         <ul class="list-group">
+          <li class="list-group-item">04/10/2022 : Ajout d'un système de connexion</li>
           <li class="list-group-item">02/10/2022 : Ajout d'un système d'historisation</li>
-          <li class="list-group-item">futur : Ajout d'un système de connexion</li>
         </ul>
       </div>
     </div>

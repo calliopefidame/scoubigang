@@ -22,7 +22,6 @@ export class HistoriqueComponent implements OnInit {
       if (!(typeof(response) == 'undefined' || typeof(response.body) == 'undefined')) {
         
         response.body.forEach((histo: { user: any; ancien_titre: any; nouveau_titre: any; ancien_texte: any; nouveau_texte: any; ancien_auteur: any; nouveau_auteur: any; }) => {
-          console.log(histo);
           this.historiques.push({
             user:histo.user,
             ancien_titre:histo.ancien_titre,

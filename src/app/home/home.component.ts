@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth/auth.service';
+import { GlobalConstants } from '../common/global-constants';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  isConnected:boolean = false;
+  username:string = '';
+  constructor(private authservice : AuthService) { }
 
   ngOnInit(): void {
+    this.isConnected = this.authservice.isLoggedIn;
+    this.username = this.authservice.username;
   }
 
 }

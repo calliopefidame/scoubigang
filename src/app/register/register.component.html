@@ -1,20 +1,23 @@
-<form>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
     <div class="mb-3">
       <label for="email" class="form-label">Login</label>
-      <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" formControlName="email">
       <div id="emailHelp" class="form-text">Ton adresse email ne sera jamais partagée avec personne.</div>
     </div>
     <div class="mb-3">
       <label for="password" class="form-label">Mot de passe</label>
-      <input type="password" class="form-control" id="password">
+      <input type="password" class="form-control" id="password" formControlName="password">
     </div>
     <div class="mb-3">
       <label for="passwordConfirm" class="form-label">Confirmes ton mot de passe</label>
-      <input type="password" class="form-control" id="passwordConfirm">
+      <input type="password" class="form-control" id="passwordConfirm" formControlName="passwordConfirm">
+      <div class="alert alert-danger" *ngIf="erreurPassConfirm" >Le mot de passe ne correspond pas !</div>
     </div>
     <div class="mb-3">
       <label for="prenom" class="form-label">Ton prénom</label>
-      <input type="password" class="form-control" id="prenom">
+      <input type="input" class="form-control" id="prenom" formControlName="prenom">
     </div>
-    <button type="submit" class="btn btn-primary">Inscris moi !</button>
+    <p>Remplir tous les champs :)</p>
+    <p>Form Status: {{ profileForm.status }}</p>
+    <button type="submit" class="btn btn-primary" [disabled]="!profileForm.valid">Inscris moi !</button>
   </form>

@@ -1,3 +1,4 @@
 export class GlobalConstants {
-    public static userEmail: any = "anonyme@mail.com";
+  public static isConnected: boolean = false;
+  public static username: string = "anonyme";
 }

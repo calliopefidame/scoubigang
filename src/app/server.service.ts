@@ -7,6 +7,7 @@ import { Article } from './articles/article';
   providedIn: 'root'
 })
 export class ServerService {
+  
 
   constructor(private http: HttpClient) {
   }
@@ -23,12 +24,10 @@ export class ServerService {
     });
   }
 
+
+  //Article
   getArticles() {
     return this.request('GET', `${environment.serverUrl}/read.php`);
-  }
-
-  getHistoriques() {
-    return this.request('GET', `${environment.serverUrl}/read_historique.php`);
   }
 
   createArticle(article:any) {
@@ -41,5 +40,19 @@ export class ServerService {
 
   deleteArticle(article:any) {
     return this.request('DELETE', `${environment.serverUrl}/delete.php/`, article);
+  }
+
+  //Historique
+  getHistoriques() {
+    return this.request('GET', `${environment.serverUrl}/historique_read.php`);
+  }
+
+  //Profile
+  createProfile(profile:any) {
+    return this.request('POST', `${environment.serverUrl}/profile_create.php/`, profile);
+  }
+
+  connectProfile(profile:any) {
+    return this.request('POST', `${environment.serverUrl}/profile_connect.php/`, profile);
   }
 }
