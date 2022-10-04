@@ -18,6 +18,7 @@ export class ArticlesComponent implements OnInit {
   articles: any[] = [];
   currentArticle: any = {id: null, titre: '', texte: ''};
   modalCallback!: () => void;
+  username: string = "anonyme";
 
   constructor(private fb: FormBuilder,
               private modalService: BsModalService,
@@ -30,6 +31,7 @@ export class ArticlesComponent implements OnInit {
       texte: this.currentArticle.texte,
     });
     this.getArticles();
+    this.username = this.authservice.username;
   }
 
   private updateForm() {

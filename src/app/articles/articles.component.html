@@ -7,7 +7,7 @@
             <div><span class="titre">{{article.titre}}</span>&nbsp;&nbsp;&nbsp;Par {{article.proprietaire}}</div>
             <p class="col-10" [innerText]="article.texte"></p>
           </div>
-          <div class="button-row" class="col-2">
+          <div class="button-row" class="col-2" *ngIf="article.proprietaire == username">
             <button type="button" class="btn btn-primary" (click)="editArticle(index, articlemodal)"><i class="fa fa-edit"></i></button>
             <button type="button" class="btn btn-danger" (click)="deleteArticle(index)"><i class="fa fa-trash"></i></button>
           </div>

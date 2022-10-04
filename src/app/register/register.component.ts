@@ -19,6 +19,7 @@ export class RegisterComponent implements OnInit {
   })
   erreurPassConfirm :boolean = false;
   erreurPass :boolean = false;
+  erreur_serveur : string = '';
 
 
   constructor(private fb: FormBuilder, private service : ServerService, private route: ActivatedRoute, private router: Router) { }
@@ -39,13 +40,12 @@ export class RegisterComponent implements OnInit {
       email:email,
       password:password,
       prenom:prenom
-    }).then(() => {
-      // this.profileForm.setValue({
-      //   email: '',
-      //   password: '',
-      //   passwordConfirm:'',
-      //   prenom:''
-      this.router.navigate(['/login']);
+    }).then((response) => {
+      if(response == 'EMAIL_ALREADY_EXISTS'){
+        this.erreur_serveur = 'L\'email que vous essayez d\'utiliser est déjà en base !';
+      } else {
+        this.router.navigate(['/login']);
+      }
     });
 
   }

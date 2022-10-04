@@ -1,4 +1,5 @@
 <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div class="alert alert-danger" *ngIf="erreur_serveur">{{erreur_serveur}}</div>
     <div class="mb-3">
       <label for="email" class="form-label">Login</label>
       <input type="email" class="form-control" id="email" aria-describedby="emailHelp" formControlName="email">
@@ -17,7 +18,5 @@
       <label for="prenom" class="form-label">Ton prénom</label>
       <input type="input" class="form-control" id="prenom" formControlName="prenom">
     </div>
-    <p>Remplir tous les champs :)</p>
-    <p>Form Status: {{ profileForm.status }}</p>
     <button type="submit" class="btn btn-primary" [disabled]="!profileForm.valid">Inscris moi !</button>
   </form>
