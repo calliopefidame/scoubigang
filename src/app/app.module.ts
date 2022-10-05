@@ -13,10 +13,11 @@ import { HomeComponent } from './home/home.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { environment } from 'src/environments/environment';
 import { HistoriqueComponent } from './historique/historique.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './profile/login/login.component';
+import { RegisterComponent } from './profile/register/register.component';
 import { AuthService } from './auth/auth.service';
 import { TopBarComponent } from './top-bar/top-bar.component';
+import { UpdateProfileComponent } from './profile/update-profile/update-profile.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TopBarComponent } from './top-bar/top-bar.component';
     HistoriqueComponent,
     LoginComponent,
     RegisterComponent,
-    TopBarComponent
+    TopBarComponent,
+    UpdateProfileComponent
   ],
   imports: [
     BrowserModule,

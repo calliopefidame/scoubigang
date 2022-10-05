@@ -7,7 +7,13 @@
       <div *ngIf="isConnected">
         <div class="h3">Bienvenue {{username}}, voilà les dernières news :</div>
         <ul class="list-group">
-          <li class="list-group-item">04/10/2022 : Ajout d'un système de connexion</li>
+          <li class="list-group-item">
+            04/10/2022 : 
+            <ul class="list-group">
+              <li class="list-group-item">Ajout d'un système de connexion</li>
+              <li class="list-group-item">Il n'est plus possible de modifier ou supprimer les articles d'autre personne</li>
+            </ul>
+          </li>
           <li class="list-group-item">02/10/2022 : Ajout d'un système d'historisation</li>
         </ul>
       </div>

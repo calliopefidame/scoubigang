@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ServerService } from '../server.service';
+import { GlobalConstants } from 'src/app/common/global-constants';
+import { EncrDecrService } from 'src/app/encr-decr.service';
+import { ServerService } from '../../server.service';
 
 @Component({
   selector: 'app-register',
@@ -22,7 +24,7 @@ export class RegisterComponent implements OnInit {
   erreur_serveur : string = '';
 
 
-  constructor(private fb: FormBuilder, private service : ServerService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private fb: FormBuilder, private service : ServerService, private route: ActivatedRoute, private router: Router, private encrDecr : EncrDecrService) { }
 
   ngOnInit(): void {
   }
@@ -35,6 +37,8 @@ export class RegisterComponent implements OnInit {
 
     this.erreurPassConfirm = password != passwordConfirm;
     if (this.erreurPassConfirm) return;
+
+    password = this.encrDecr.set(GlobalConstants.encrypteKey, password);
 
     this.service.createProfile({
       email:email,

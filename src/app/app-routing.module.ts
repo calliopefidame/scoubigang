@@ -4,8 +4,8 @@ import { ArticlesComponent } from './articles/articles.component';
 import { CALIGuard } from './auth/cali.guard';
 import { HistoriqueComponent } from './historique/historique.component';
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './profile/login/login.component';
+import { RegisterComponent } from './profile/register/register.component';
 
 const routes: Routes = [
   {

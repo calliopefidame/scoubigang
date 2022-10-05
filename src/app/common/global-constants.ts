@@ -1,4 +1,3 @@
 export class GlobalConstants {
-  public static isConnected: boolean = false;
-  public static username: string = "anonyme";
+  public static encrypteKey : string = '123456$#@$^@1ERFCALIPOP7849';
 }

@@ -29,6 +29,7 @@
   padding: 24px;
   position: relative;
   width: 80%;
+  font-family: 'Times New Roman', Times, serif;
 }
 .letter:before, .letter:after {
   content: "";
